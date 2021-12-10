@@ -1,10 +1,6 @@
-import React from 'react';
-
-
-
 //Go through a state array with a days object and an appointments object
 //Match the appointments given in the days object to those in the appointments object
-export default function getAppointmentsForDay(state, day) {
+const getAppointmentsForDay = function(state, day) {
 let appointmentArray = [];
 state.days.map(dayObject => {
 if (dayObject.name === day) {
@@ -16,6 +12,19 @@ const matchIds = (appointments, ids) => {
   const matched = ids.map(id => appointments[id]);
   return matched;
 }
-return  matchIds(state.appointments,appointmentArray);
-
+return  (matchIds(state.appointments,appointmentArray));
 }
+
+const getInterview = function(state, interview) {
+  if (!interview) {
+    return null;
+  }
+
+  const interviewerInfo = state.interviewers[interview.interviewer];
+  return {
+    student: interview.student,
+    interviewer: interviewerInfo
+  }
+}
+
+module.exports = { getAppointmentsForDay, getInterview };
