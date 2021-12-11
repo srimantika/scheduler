@@ -11,7 +11,7 @@ export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";  
   const CREATE = "CREATE"
-  const interviewers = [];
+  
 
 
   const { mode, transition, back } = useVisualMode(
@@ -33,7 +33,7 @@ return(
         <Form
           name={props.name}
           value={props.value}
-          interviewers={interviewers}
+          interviewers={props.interviewers}
           onCancel={back}
         /> )}
   </article>
