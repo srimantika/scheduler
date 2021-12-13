@@ -4,17 +4,17 @@ export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
   
-  function transition(mode, replace = false) {
+  function transition(newMode, replace = false) {
     console.log("Entering")
     if (replace) {
-      setMode((prev) => mode)
+      setMode((prev) => newMode)
       let replaceHistory = [...history];
       replaceHistory[replaceHistory.length - 1] = mode;
       setHistory((prev) => replaceHistory);
     } else {
-      setMode((prev) => mode);
+      setMode((prev) => newMode);
       let newHistory = [...history];
-      newHistory.push(mode);
+      newHistory.push(newMode);
       setHistory((prev) => newHistory);
     }
   }
