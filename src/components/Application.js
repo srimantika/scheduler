@@ -17,6 +17,8 @@ export default function Application(props) {
     interviewers: {}
   })
 
+
+
   let dailyAppointments = [];
 
   const setDay = day => setState(prev =>({...prev, day}));
@@ -31,15 +33,40 @@ export default function Application(props) {
       })
     }, [])
 
+    function bookInterview(id, interview) {
+      console.log("State", state)
+      const appointment = {
+        ...state.appointments[id],
+        interview: { ...interview }
+      };
+  
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      console.log("appointments", appointments)
+      return axios.put(`/api/appointments/${id}`, {interview:interview})
+      .then(res => {
+          setState({...state, appointments})
+          return res
+        })
+      .catch(err => console.log(err))
+    }
+
   dailyAppointments = getAppointmentsForDay(state,state.day)
   const interviewers = getInterviewersForDay(state, state.day);
   
   const appointment = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview)
     return (
-  <Appointment  
-  key={appointment.id} id={appointment.id} time={appointment.time} interview={interview} interviewers={interviewers} />
-  );
+        <Appointment  
+        key={appointment.id} 
+        id={appointment.id} 
+        time={appointment.time} 
+        interview={interview} 
+        interviewers={interviewers} 
+        bookInterview ={bookInterview} />
+        );
   })
   
   return (
@@ -56,6 +83,7 @@ export default function Application(props) {
               days = {state.days} 
               value = {state.day}
               onChange={setDay}
+              bookInterview={bookInterview}
             /> 
         </nav>
         <img
@@ -66,7 +94,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
       {appointment}
-      <Appointment key="last" time="5pm" /> 
+      <Appointment key="last" time="5pm" bookInterview={bookInterview} /> 
       </section>
     </main>
   );
