@@ -4,8 +4,8 @@ import InterviewerList from "components/InterviewerList";
 
 export default function Form(props) {
 
-  const [student, setStudent] = useState(props.student || "");
-  const [interviewer, setInterviewer] = useState(props.interviewer || null);  
+  const [student, setStudent] = useState(props.name || "");
+  const [interviewer, setInterviewer] = useState(props.value|| null);  
   
     //Helper function to clear all fields
     const reset = () => {
@@ -21,6 +21,7 @@ export default function Form(props) {
     function save() {
       props.onSave(student, interviewer);
     }
+    //console.log(props)
 
   return (
     <main className="appointment__card appointment__card--create">

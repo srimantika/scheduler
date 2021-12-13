@@ -13,7 +13,6 @@ if (dayObject.name === day) {
   dayObject.appointments.forEach(apptId => appointmentArray.push(apptId))
 }
 })
-
 return  (matchIds(state.appointments,appointmentArray));
 }
 
