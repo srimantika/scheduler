@@ -53,6 +53,26 @@ export default function Application(props) {
       .catch(err => console.log(err))
     }
 
+    function cancelInterview(id) {
+
+      const appointment = {
+        ...state.appointments[id],
+        interview: null
+      };
+  
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      }
+  
+      return axios.delete(`/api/appointments/${id}`)
+      .then(res => {
+        setState({...state, appointments})
+        return res
+      })
+      .catch(err => console.log(err))
+    }    
+
   dailyAppointments = getAppointmentsForDay(state,state.day)
   const interviewers = getInterviewersForDay(state, state.day);
   
@@ -65,7 +85,8 @@ export default function Application(props) {
         time={appointment.time} 
         interview={interview} 
         interviewers={interviewers} 
-        bookInterview ={bookInterview} />
+        bookInterview ={bookInterview}
+        cancelInterview={cancelInterview} />
         );
   })
   
@@ -84,6 +105,7 @@ export default function Application(props) {
               value = {state.day}
               onChange={setDay}
               bookInterview={bookInterview}
+              cancelInterview={cancelInterview}
             /> 
         </nav>
         <img
@@ -94,7 +116,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
       {appointment}
-      <Appointment key="last" time="5pm" bookInterview={bookInterview} /> 
+      <Appointment key="last" time="5pm" bookInterview={bookInterview} cancelInterview={cancelInterview}  /> 
       </section>
     </main>
   );
