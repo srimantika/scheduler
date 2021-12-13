@@ -31,18 +31,15 @@ export default function Appointment(props) {
   function save(name, interviewer) {
     if (name && interviewer) {
     transition(SAVING);
-    
     const interview = {
       student: name,
       interviewer
     };
-   
+  
     props.bookInterview(props.id, interview)
     .then(() => transition(SHOW))
     .catch(() => transition(ERROR_SAVE, true))
     } 
-
-
   }
 
   function remove() {
