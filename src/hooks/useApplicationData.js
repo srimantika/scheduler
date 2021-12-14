@@ -24,7 +24,7 @@ export default function useApplicationData() {
       })
     }, [])
 
-
+  // Find Day for Updating remaining spots
     function findDay(day) {
       const daysOfWeek = {
         Monday: 0,
@@ -35,7 +35,7 @@ export default function useApplicationData() {
       }
       return daysOfWeek[day]
     }
-
+   // Function for handling book interview
     function bookInterview(id, interview) {
       console.log("State", state)
       const appointment = {
@@ -76,7 +76,7 @@ export default function useApplicationData() {
         })
      // .catch(err => err)
     }
-
+    // Function for handling Cancel or Delete interview
     function cancelInterview(id) {
 
       const appointment = {
