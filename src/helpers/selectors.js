@@ -13,7 +13,7 @@ if (dayObject.name === day) {
   dayObject.appointments.forEach(apptId => appointmentArray.push(apptId))
 }
 })
-return  (matchIds(state.appointments,appointmentArray));
+return (matchIds(state.appointments,appointmentArray));
 }
 
 const getInterview = function(state, interview) {
