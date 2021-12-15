@@ -6,6 +6,19 @@ The project follows best practices of TDD (Test Driven Development), where indiv
 
 !["User can book an interview and Edit it"](https://github.com/srimantika/scheduler/blob/master/docs/creating%20a%20interview.gif?raw=true)
 
+```
+User book an interview in an empty slot successfully and Edits an existing interview. 
+```
+
+!["User edits an interview and cancels it"](https://github.com/srimantika/scheduler/blob/master/docs/Edit%20and%20Delete.gif?raw=true)
+```
+User edits an interview and cancels an interview after confirmation.
+```
+
+!["User gets an Error"](https://github.com/srimantika/scheduler/blob/master/docs/Error%20Mode.gif?raw=true)
+```
+User gets an appropriate error incase the app is not able to create a new interview or delete an existing interview
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -32,7 +45,7 @@ npm run storybook
 ```sh
 For full functionality both must run concurrently: the client and the API server applications.
 
-- Start by forking and cloning the scheduler-api server here https://github.com/lighthouse-labs/scheduler-api
+- Start by forking and cloning the scheduler-api server [here](https://github.com/lighthouse-labs/scheduler-api)
 - Follow the steps outlined in README to install and setup the database
 - Fork and clone this repo
 - Navigate to the root directory and install dependencies with npm install
