@@ -17,7 +17,8 @@ User edits an interview and then goes ahead and cancels an interview after confi
 
 !["User gets an Error"](https://github.com/srimantika/scheduler/blob/master/docs/Error%20Mode.gif?raw=true)
 ```
-User gets an appropriate error incase the app is not able to create a new interview or delete an existing interview.
+User gets an appropriate error incase the app is not able to create a new interview or delete an 
+existing interview.
 ```
 ## Setup
 
@@ -45,11 +46,12 @@ npm run storybook
 ```sh
 For full functionality both must run concurrently: the client and the API server applications.
 
-- Start by forking and cloning the scheduler-api server [here](https://github.com/lighthouse-labs/scheduler-api)
+- Start by forking and cloning the scheduler-api server ["here"](https://github.com/lighthouse-labs/scheduler-api)
 - Follow the steps outlined in README to install and setup the database
 - Fork and clone this repo
 - Navigate to the root directory and install dependencies with npm install
-- Once you have the database setup and the scheduler-api server running, run the following command from the root directory of the project npm start.
+- Once you have the database setup and the scheduler-api server running, run the following
+  command from the root directory of the project - npm start.
 ```
 
 ## Project Stack
