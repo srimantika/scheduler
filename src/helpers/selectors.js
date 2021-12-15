@@ -8,6 +8,7 @@ const matchIds = (appointments, ids) => {
 //Match the appointments given in the days object to those in the appointments object
 const getAppointmentsForDay = function(state, day) {
 let appointmentArray = [];
+// eslint-disable-next-line
 state.days.map(dayObject => {
 if (dayObject.name === day) {
   dayObject.appointments.forEach(apptId => appointmentArray.push(apptId))
@@ -31,6 +32,7 @@ const getInterview = function(state, interview) {
 function getInterviewersForDay(state, day) {
 
   let interviewersArr = [];
+  // eslint-disable-next-line
   state.days.map(dayObject => {
     if (dayObject.name === day) {
       dayObject.interviewers.forEach(interviewerId => interviewersArr.push(interviewerId))
