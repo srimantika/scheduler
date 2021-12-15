@@ -4,6 +4,7 @@ Interview Scheduler is a single page application(SPA) built using React. The App
 The project follows best practices of TDD (Test Driven Development), where individual Components are tested in isolation as well as End-to-End testing is performed.
 
 
+!["User can book an interview and Edit it"](https://github.com/srimantika/scheduler/blob/master/docs/creating%20a%20interview.gif?raw=true)
 
 ## Setup
 
